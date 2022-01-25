@@ -6,14 +6,15 @@ pipeline {
                 git clone this repository  
             }
         }
-        stage('Build docker'){
+        stage('Build and run docker'){
             steps {
                 sudo docker build -t hello-word-php-apache . 
+                sudo docker run -p 81:80 hello-word-php-apache
             }
         }
-        stage('Run docker') {
+        stage('Probar página') {
             steps {
-                sudo docker run -p 81:80 hello-word-php-apache
+                wget http://localhost:81
             }
         }
     }
