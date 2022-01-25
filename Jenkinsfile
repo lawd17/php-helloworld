@@ -1,11 +1,6 @@
 pipeline {  
     agent any  
     stages {
-        stage('Clone repository') {  
-            steps {  
-                sh "git clone this repository"  
-            }
-        }
         stage('Build and run docker'){
             steps {
                 sh "docker build -t hello-word-php-apache ." 
